@@ -1,0 +1,17 @@
+<div class="page-login">
+    <img class="img-logo" src="/assets/png/linhas_infinitas_no_background.png">
+
+        <form class="form-group" [formGroup]="formLogin">
+            <div class="email-wrapper wrapper">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" name="email" id="email" formControlName="email"/>
+            </div>
+            <div class="password-wrapper wrapper">
+                <label class="form-label" for="password">Senha</label>
+                <input class="form-input" type="password" name="password" id="password" formControlName    ="password"/>
+            </div>
+    
+            <button class="btn btn-primary" (click)="onSubmit()">Login</button>
+        </form>
+        
+</div>

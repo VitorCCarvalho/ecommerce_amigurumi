@@ -1,1 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap');
+:root{
+    --bg-color: #DFE5EA;
+    --primary-color: #F0CBCC;
+}
+
+*{
+    font-family: 'Sansita';
+    background-color: var(--bg-color);
+}
+
+@font-face {
+    font-family: 'Sansita';
+    src: url('assets/fonts/Sansita/Sansita-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Sansita';
+    src: url('assets/fonts/Sansita/Sansita-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Sansita';
+    src: url('assets/fonts/Sansita/Sansita-Black.ttf');
+    font-weight: 900;
+}

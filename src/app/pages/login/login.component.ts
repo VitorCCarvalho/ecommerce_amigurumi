@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -8,9 +9,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   standalone: true,
   imports: [
     CommonModule, 
-    ReactiveFormsModule,
+    ReactiveFormsModule
     ],
-  
+    animations: [
+      trigger(
+        'inOutAnimation', 
+        [
+          transition(
+            ':enter', 
+            [
+              style({ height: 0, opacity: 0 }),
+              animate('0.5s linear', 
+                      style({ height: 300, opacity: 1 }))
+            ]
+          ),
+          transition(
+            ':leave', 
+            [
+              style({ height: 300, opacity: 1 }),
+              animate('0.5s linear', 
+                      style({ height: 0, opacity: 0 }))
+            ]
+          )
+        ]
+      )
+    ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

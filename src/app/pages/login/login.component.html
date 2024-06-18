@@ -1,7 +1,7 @@
 <div class="page-login">
     <img class="img-logo" src="/assets/png/linhas_infinitas_no_background.png">
 
-        <div class="form-login" *ngIf="loginOrSignup">
+        <div class="form form-login" *ngIf="loginOrSignup" [@inOutAnimation]>
             <form class="form-group" [formGroup]="formLogin">
                 <div class="email-wrapper wrapper">
                     <label class="form-label" for="l_email">Email</label>
@@ -17,7 +17,7 @@
             <a class="link-signup" (click)="changeForms()">Ainda não é cadastrado? Cadastre-se aqui</a>
         </div>
         
-        <div class="form form-signup" *ngIf="!loginOrSignup">
+        <div class="form form-signup" *ngIf="!loginOrSignup" [@inOutAnimation]>
             <form class="form-group" [formGroup]="formSignup">
                 <div class="email-wrapper wrapper">
                     <label class="form-label" for="s_email">Email</label>

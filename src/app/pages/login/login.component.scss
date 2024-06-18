@@ -6,21 +6,33 @@
     justify-content: space-evenly;
 }
 
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .page-login .img-logo{
-    width: 700px;
+    width: 500px;
     padding-top: 85px;
     padding-bottom: 100px;
 }
 
 .page-login .form-group{
+    padding-bottom: 12px;
 }
+
+.page-login .form-group{
+    padding-bottom: 12px;
+}
+
 
 .page-login .form-group{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 28px;
-    width: 515px;
+    width: 375px;
 }
 
 .page-login .form-group .wrapper{
@@ -32,10 +44,16 @@
 
 }
 
-.page-login .form-group .wrapper .form-label{
+.pw-cf{
+    width: 120px !important;
+}
+
+.page-login .form .form-group .wrapper .form-label{
     background-color: white;
     width: 45px;
 }
+
+
 
 .page-login .form-group .wrapper .form-input{
     background-color: white;
@@ -52,14 +70,23 @@
     height: 48px;
     border: none;
     border-radius: 4px;
-
+    cursor: pointer;
 }
 
-@media(min-width: 1024px){    
-    .page-login .img-logo{
-        
-    }
-    
+.page-login .form .link-signup{
+    cursor: pointer;
+}
 
-    
+@media(min-width: 1024px){ 
+    .page-login .img-logo{
+        width: 700px;
+    }   
+
+    .page-login .form-group{
+        width: 515px;
+    }
+
+    .page-login .wrapper .form-label .pw-cf{
+        width: 120px;
+    }
 }

@@ -1,17 +1,39 @@
 <div class="page-login">
     <img class="img-logo" src="/assets/png/linhas_infinitas_no_background.png">
 
-        <form class="form-group" [formGroup]="formLogin">
-            <div class="email-wrapper wrapper">
-                <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" name="email" id="email" formControlName="email"/>
-            </div>
-            <div class="password-wrapper wrapper">
-                <label class="form-label" for="password">Senha</label>
-                <input class="form-input" type="password" name="password" id="password" formControlName    ="password"/>
-            </div>
-    
-            <button class="btn btn-primary" (click)="onSubmit()">Login</button>
-        </form>
+        <div class="form-login" *ngIf="loginOrSignup">
+            <form class="form-group" [formGroup]="formLogin">
+                <div class="email-wrapper wrapper">
+                    <label class="form-label" for="l_email">Email</label>
+                    <input class="form-input" type="email" name="l_email" id="l_email" formControlName="l_email"/>
+                </div>
+                <div class="password-wrapper wrapper">
+                    <label class="form-label" for="l_password">Senha</label>
+                    <input class="form-input" type="password" name="l_password" id="l_password" formControlName="l_password"/>
+                </div>
         
+                <button class="btn btn-primary" (click)="onSubmit()">Login</button>
+            </form>
+            <a class="link-signup" (click)="changeForms()">Ainda não é cadastrado? Cadastre-se aqui</a>
+        </div>
+        
+        <div class="form form-signup" *ngIf="!loginOrSignup">
+            <form class="form-group" [formGroup]="formSignup">
+                <div class="email-wrapper wrapper">
+                    <label class="form-label" for="s_email">Email</label>
+                    <input class="form-input" type="email" name="s_email" id="s_email" formControlName="s_email"/>
+                </div>
+                <div class="password-wrapper wrapper">
+                    <label class="form-label" for="s_password">Senha</label>
+                    <input class="form-input" type="password" name="s_password" id="s_password" formControlName="s_password"/>
+                </div>
+                <div class="password-confirm-wrapper wrapper">
+                    <label class="form-label pw-cf" for="s_password_confirm">Confirme a senha</label>
+                    <input class="form-input" type="password" name="s_password_confirm" id="s_password_confirm" formControlName="s_password_confirm"/>
+                </div>
+        
+                <button class="btn btn-primary" (click)="onSubmit()">Login</button>
+            </form>
+            <a class="link-signup" (click)="changeForms()">Voltar para a seção de login</a>
+        </div>
 </div>

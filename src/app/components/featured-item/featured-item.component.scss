@@ -1,7 +1,7 @@
 .item-container{
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 80vw;
     background-color: var(--primary-color);
 
 }
@@ -25,25 +25,31 @@
 
 .featured-item .text-section{
     width: 45%;
-    font-size: 32px;
+    font-size: 24px;
+    padding-right: 8px;;
     background-color: transparent;
     font-family: 'Cherry Bomb One'
 }
 
 @media(min-width: 850px){
-
     .featured-item{
         padding-left: 20%;
     }
 
     .featured-item .text-section{
         width: 45%;
-        font-size: 64px;
+        font-size: 48px;
         background-color: transparent;
         font-family: 'Cherry Bomb One'
     }
 
     .featured-item img{
         height: 350px;
+    }
+}
+
+@media(min-width: 1300px){
+    .featured-item .text-section{
+        font-size: 64px;
     }
 }

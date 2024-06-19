@@ -47,7 +47,7 @@ export class FeaturedListComponent {
     counter: number = 0;
     featuredItems: FeaturedItem[] = [
         {
-            text: 'Amigurumi por apenas R$ 49,99',
+            text: 'Amigurumis por apenas R$49,99',
             imgSrc: "/assets/png/bear.png"
         },
         {

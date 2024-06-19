@@ -7,8 +7,9 @@
 }
 
 .featured-section{
-    position: fixed;
     width: 100vw;
+    height: 220px;
+    min-height:fit-content;
     background-color: var(--primary-color);
     display: flex;
     flex-direction: row;
@@ -21,16 +22,22 @@
     background-color: transparent;
     height:max-content;
     padding: 12px;
-    padding-top: 15%;
     cursor: pointer;
     align-self: center;
     z-index: 1;
 }
 
-.featured-section .featured-list{
-    position: fixed;
+
+
+@media(min-width: 450px){
+    .featured-section{
+        height: 300px;   
+    }
 }
 
-.featured-section .featured-list .featured-item{
-    position: fixed;
+
+@media(min-width: 850px){
+    .featured-section{
+        height: 475px;   
+    }
 }

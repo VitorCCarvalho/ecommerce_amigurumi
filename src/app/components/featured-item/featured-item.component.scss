@@ -1,0 +1,49 @@
+.item-container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: var(--primary-color);
+
+}
+
+.featured-item{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+}
+
+.featured-item img{
+    height: 150px;
+    align-self: center;
+}
+
+.featured-item .text-section{
+    width: 45%;
+    font-size: 32px;
+    background-color: transparent;
+    font-family: 'Cherry Bomb One'
+}
+
+@media(min-width: 850px){
+
+    .featured-item{
+        padding-left: 20%;
+    }
+
+    .featured-item .text-section{
+        width: 45%;
+        font-size: 64px;
+        background-color: transparent;
+        font-family: 'Cherry Bomb One'
+    }
+
+    .featured-item img{
+        height: 350px;
+    }
+}

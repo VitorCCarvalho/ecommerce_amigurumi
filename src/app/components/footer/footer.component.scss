@@ -1,0 +1,27 @@
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    background-color: var(--primary-color);
+}
+
+footer .icons{
+    display: flex;
+    flex-direction: row;
+    padding-left: 90px;
+    gap: 16px;
+    background-color: var(--primary-color);
+}
+
+footer .icons .icon{
+    width: 30px;
+    background-color: transparent;
+}
+
+footer span{
+    font-size: 24px;
+    background-color: transparent;
+    padding-right: 90px;
+}

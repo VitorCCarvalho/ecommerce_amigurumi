@@ -1,2 +1,10 @@
 <app-header></app-header>
-<app-featured-list></app-featured-list>
+<div class="main-body">
+    <app-featured-list></app-featured-list>
+    <div class="mini-catalog">
+        <app-product-list [sale]="true"></app-product-list>
+        <app-product-list></app-product-list>
+    </div>
+    <app-footer></app-footer>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="list-container">
+    <div class="title-text">
+        @if(sale){
+            Promoções
+        } @else {
+            Vistos Recentemente
+        }
+        
+    </div>
+    <div class="list-area">
+        <div class="product-list" *ngFor="let product of products">
+            @if(sale){
+                <app-list-item [product]="product" [sale]="true"></app-list-item>
+            } @else {
+                <app-list-item [product]="product"></app-list-item>
+            }
+        </div>
+    </div>
+</div>
+
+

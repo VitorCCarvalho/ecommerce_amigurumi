@@ -1,0 +1,13 @@
+.container-product{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container-product img{
+    width: 150px;
+}
+
+.container-product .text-section{
+    font-size: 12px;
+}

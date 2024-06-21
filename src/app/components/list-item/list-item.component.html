@@ -1,0 +1,16 @@
+<div class="container-product">
+    <img src="{{product.imgSrc}}"/>
+    <div class="text-section">
+        @if(sale){
+            <p>{{product.name}}</p>
+            <p><del>R${{product.price}}</del> <b> R$39.99</b></p>
+        }
+        @else {
+            <p>{{product.name}}</p>
+            <p>R${{product.price}}</p>
+        }
+    </div>
+</div>
+
+
+

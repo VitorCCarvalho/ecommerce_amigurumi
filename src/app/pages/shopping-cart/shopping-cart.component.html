@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="body-cart">
+    <div class="cart-section">
+        <span class="title-cart"><b>Carrinho de Compras</b></span>
+        <div class="shopping-wrapper">
+            <div class="shopping-list" *ngFor="let product of product_cart">
+                <app-shopping-item [product]="product"></app-shopping-item>
+            </div>
+        </div>
+    </div>
+</div>

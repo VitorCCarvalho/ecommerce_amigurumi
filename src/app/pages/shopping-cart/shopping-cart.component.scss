@@ -1,0 +1,21 @@
+.body-cart{
+    width: 100%;
+    padding-top: 38px;
+}
+
+.body-cart .cart-section{
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    padding-left: 120px;
+}
+
+.body-cart .cart-section .title-cart{
+    font-size: 32px;
+}
+
+.body-cart .cart-section .shopping-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

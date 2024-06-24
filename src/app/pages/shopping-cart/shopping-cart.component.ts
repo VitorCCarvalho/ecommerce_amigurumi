@@ -41,4 +41,12 @@ export class ShoppingCartComponent {
       imgSrc: "/assets/png/bear.png"
     }
   ]
+
+  subTotal: number = this.product_cart.reduce(function(a, b){
+    return a + b.price;
+  }, 0)
+
+  shipping: number = 9.99
+
+  sumTotal: string = (this.subTotal + this.shipping).toFixed(2)
 }

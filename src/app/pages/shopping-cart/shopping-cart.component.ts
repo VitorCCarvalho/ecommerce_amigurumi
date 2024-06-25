@@ -3,6 +3,8 @@ import { HeaderComponent } from "../../components/header/header.component";
 import { ShoppingItemComponent } from "../../components/shopping-item/shopping-item.component";
 import { Product } from '../../types/product.type';
 import { CommonModule } from '@angular/common';
+import { ShopCartService } from '../../services/shop-cart/shop-cart.service';
+import { CartItem } from '../../types/cart-item.type';
 
 @Component({
     selector: 'app-shopping-cart',
@@ -15,39 +17,13 @@ import { CommonModule } from '@angular/common';
       ShoppingItemComponent]
 })
 export class ShoppingCartComponent {
-  product_cart: Product[] = [
-    {
-      id: 0,
-      name: 'Bear',
-      price: 39.99,
-      imgSrc: "/assets/png/bear.png",
-      desc: ""
-    },
-    {
-      id: 0,
-      name: 'Bear',
-      price: 39.99,
-      imgSrc: "/assets/png/bear.png",
-      desc: ""
-    },
-    {
-      id: 0,
-      name: 'Bear',
-      price: 39.99,
-      imgSrc: "/assets/png/bear.png",
-      desc: ""
-    },
-    {
-      id: 0,
-      name: 'Bear',
-      price: 39.99,
-      imgSrc: "/assets/png/bear.png",
-      desc: ""
-    }
-  ]
+
+  constructor(private cartService: ShopCartService){}
+
+  product_cart: CartItem[] = this.cartService.cart()
 
   subTotal: number = this.product_cart.reduce(function(a, b){
-    return a + b.price;
+    return a + (b.product.price * b.qty);
   }, 0)
 
   shipping: number = 9.99

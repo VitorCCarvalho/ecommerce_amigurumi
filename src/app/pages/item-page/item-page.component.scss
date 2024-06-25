@@ -1,0 +1,83 @@
+.body-item{
+    padding-top: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.body-item .img-section {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.body-item .img-section .img-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.body-item .img-section .small-img{
+    width: 100px;
+}
+
+
+.body-item .img-section .current-img{
+    width: 70%;
+}
+
+
+
+.body-item .desc-section{
+    width: 35%;
+}
+
+.body-item .desc-section .desc-title{
+    font-size: 32px;
+}
+
+.body-item .actions-section{
+    width: 20%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-size: 26px;
+}
+
+.body-item .actions-section .btn-section{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.body-item .actions-section .btn-section .btn-buynow{
+    height: 50px;
+    border: none;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.body-item .actions-section .btn-section .btn-buynow b{
+    background-color: inherit;
+}
+
+.body-item .actions-section .btn-section .btn-addcart{
+    height: 50px;
+    border: 2px solid var(--primary-dark);
+    background-color: transparent;
+    border-radius: 4px;
+    
+    color: var(--primary-dark);
+}
+
+
+
+
+

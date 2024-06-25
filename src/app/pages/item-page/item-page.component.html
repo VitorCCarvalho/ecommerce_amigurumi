@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="body-item">
+    <div class="img-section">
+        <div class="img-list">
+            <img class="small-img" src="/assets/png/bear.png">
+            <img class="small-img" src="/assets/png/blank.png">
+            <img class="small-img" src="/assets/png/blank.png">
+            <img class="small-img" src="/assets/png/blank.png">
+            <img class="small-img" src="/assets/png/blank.png">
+        </div>
+
+        <img class="current-img" src="{{product.imgSrc}}">
+    </div>
+    <div class="desc-section">
+        <p class="desc-title"><b>Descrição</b></p>
+        <div class="desc-text">
+            {{product.desc}}
+        </div>
+    </div>
+    <div class="actions-section">
+        <span><b>{{product.name}}</b></span>
+        <span>Compre agora: <b>R${{product.price}}</b></span>
+
+        <div class="info-section">
+            <span>Entrega: <b>Todo Brasil</b></span>
+        </div>
+        <div class="btn-section">
+            <button class="btn-buynow"><b>Comprar Agora</b></button>
+            <button class="btn-addcart"><b>Adicionar ao Carrinho</b></button>
+        </div>
+        
+    </div>
+</div>

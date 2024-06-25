@@ -38,7 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit{
-  loginOrSignup: boolean = false
+  loginOrSignup: boolean = true
   formLogin!: FormGroup
   formSignup!: FormGroup
 
@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log("foi")
   }
 
   changeForms(){

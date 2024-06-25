@@ -15,6 +15,7 @@ export class ListItemComponent {
     id: 0,
     name: "Urso",
     price: 49.99,
-    imgSrc: "/assets/png/bear.png"
+    imgSrc: "/assets/png/bear.png",
+    desc: ""
   }
 }

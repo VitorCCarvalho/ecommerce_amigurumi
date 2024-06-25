@@ -13,6 +13,7 @@ export class ShoppingItemComponent {
     id: 0,
     name: 'Bear',
     price: 39.99,
-    imgSrc: "/assets/png/bear.png"
+    imgSrc: "/assets/png/bear.png",
+    desc: ""
   }
 }

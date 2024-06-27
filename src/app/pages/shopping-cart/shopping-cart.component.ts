@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { ShoppingItemComponent } from "../../components/shopping-item/shopping-item.component";
 import { Product } from '../../types/product.type';
@@ -16,11 +16,15 @@ import { CartItem } from '../../types/cart-item.type';
       HeaderComponent, 
       ShoppingItemComponent]
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit{
 
   constructor(private cartService: ShopCartService){}
 
-  product_cart: CartItem[] = this.cartService.cart()
+  ngOnInit(): void {
+    this.product_cart = this.cartService.cart()
+  }
+
+  product_cart: CartItem[] = []
 
   subTotal: number = this.product_cart.reduce(function(a, b){
     return a + (b.product.price * b.qty);

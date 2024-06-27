@@ -1,6 +1,7 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, afterRender, signal } from '@angular/core';
 import { CartItem } from '../../types/cart-item.type';
 import { Product } from '../../types/product.type';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,19 @@ export class ShopCartService {
     desc: ""
   }
 
-  constructor() { }
+  cartSource!: Subject<CartItem[]>
+  cart = signal<CartItem[]>([])
 
-  cart = signal<CartItem[]>([
-    {
-      product: this.bear,
-      qty: 1
+  constructor() {
+    afterRender(() => {
+      const storage = localStorage.getItem('cart')!= null ? JSON.parse(localStorage.getItem('cart')  || "") : []
+      this.cartSource = new Subject<CartItem[]>();
+      this.cart = signal<CartItem[]>(localStorage.getItem('cart')!= null ? JSON.parse(localStorage.getItem('cart')  || "") : [])
     }
-  ])
+      )
+   }
+
+  
   
   addItem(item: Product){
     this.cart.update((currentCart) => {
@@ -42,6 +48,8 @@ export class ShopCartService {
 
       return currentCart;
     })
+
+    this.syncCart()
   }
 
   removeItem(productId: number){
@@ -61,5 +69,26 @@ export class ShopCartService {
 
       return currentCart
     })
+    this.syncCart()
+  }
+
+  deleteItem(productId: number){
+    this.cart.update((currentCart) =>{
+      const item = currentCart.find((i) =>
+        i.product.id === productId
+      )
+
+      if(item){
+        let index = currentCart.indexOf(item)
+        currentCart.splice(index, 1)
+      }
+
+      return currentCart
+    })
+    this.syncCart()
+  }
+
+  syncCart(){
+    localStorage.setItem('cart', JSON.stringify(this.cart()));
   }
 }

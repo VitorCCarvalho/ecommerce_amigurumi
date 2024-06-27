@@ -1,0 +1,29 @@
+*{
+  animation: snackbarIn 0.5s;
+}
+
+.snackbar-container {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #b6e8bb;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    font-size: 12px;
+    transform: translateX(-50%);
+    min-width: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .snackbar-container button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 30px;
+  }
+
+  

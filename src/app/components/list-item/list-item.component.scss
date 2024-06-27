@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    cursor: pointer;
 }
 
 .container-product img{
@@ -10,4 +11,15 @@
 
 .container-product .text-section{
     font-size: 12px;
+}
+
+
+@media (min-width: 1450px){
+    .container-product img{
+        width: 200px;
+    }
+    
+    .container-product .text-section{
+        font-size: 16px;
+    }
 }

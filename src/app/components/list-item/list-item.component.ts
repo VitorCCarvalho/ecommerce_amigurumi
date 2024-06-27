@@ -1,10 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../types/product.type';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list-item',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterModule
+  ],
   templateUrl: './list-item.component.html',
   styleUrl: './list-item.component.scss'
 })

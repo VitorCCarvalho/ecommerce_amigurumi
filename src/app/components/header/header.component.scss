@@ -7,7 +7,7 @@
 }
 
 header .link-btns{
-    width: 10%;
+    width: 160px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -22,9 +22,10 @@ header{
     height: 139px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid black;
+    padding: 0px 5%;
 }
 
 header img{
@@ -43,6 +44,3 @@ header .search-bar{
 
 }
 
-header .link-btns{
-
-}

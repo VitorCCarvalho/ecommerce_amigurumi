@@ -2,7 +2,7 @@
 <div class="body-item">
     <div class="img-section">
         <div class="img-list">
-            <img class="small-img" src="/assets/png/bear.png">
+            <img class="small-img" src="{{product.imgSrc}}">
             <img class="small-img" src="/assets/png/blank.png">
             <img class="small-img" src="/assets/png/blank.png">
             <img class="small-img" src="/assets/png/blank.png">
@@ -25,7 +25,7 @@
             <span>Entrega: <b>Todo Brasil</b></span>
         </div>
         <div class="btn-section">
-            <button class="btn-buynow"><b>Comprar Agora</b></button>
+            <button class="btn-buynow" (click)="buyNow()"><b>Comprar Agora</b></button>
             <button class="btn-addcart" (click)="addToCart()"><b>Adicionar ao Carrinho</b></button>
         </div>
         

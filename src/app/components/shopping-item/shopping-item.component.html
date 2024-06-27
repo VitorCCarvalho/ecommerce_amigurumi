@@ -1,13 +1,18 @@
 <div class="shopping-item">
     <div class="left-box">
-        <img src="{{product.imgSrc}}" />
+        <img src="{{cartItem.product.imgSrc}}" />
         <div class="left-text">
-            <b>{{product.name}}</b>
+            <b>{{cartItem.product.name}}</b>
+            <div class="qty-box">
+                <button class="btn-qty" (click)="removeProduct()">-</button>
+                <p class="qty-text">{{cartItem.qty}}</p>
+                <button class="btn-qty" (click)="addProduct()">+</button>
+            </div>
         </div>
     </div>
     <div class="right-box">
-        <b>R${{product.price}}</b>
-        <div class="delete">
+        <b>R${{cartItem.product.price * cartItem.qty}}</b>
+        <div class="delete" (click)="deleteProduct()">
             <span class="material-symbols-outlined">
                 delete
             </span>

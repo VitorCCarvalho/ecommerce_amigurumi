@@ -19,6 +19,32 @@
 
 .shopping-item .left-box .left-text{
     font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shopping-item .left-box .left-text .qty-box{
+    width: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shopping-item .left-box .left-text .qty-box .qty-text{
+    width: 32px;
+    height: 32px;
+    align-self: center !important;
+    padding-top: 8px;;
+    padding-left: 16px;
+}
+
+.shopping-item .left-box .left-text .qty-box .btn-qty{  
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .shopping-item .right-box{

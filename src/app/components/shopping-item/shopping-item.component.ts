@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../types/product.type';
+import { CartItem } from '../../types/cart-item.type';
+import { ShopCartService } from '../../services/shop-cart/shop-cart.service';
 
 @Component({
   selector: 'app-shopping-item',
@@ -9,11 +10,19 @@ import { Product } from '../../types/product.type';
   styleUrl: './shopping-item.component.scss'
 })
 export class ShoppingItemComponent {
-  @Input() product: Product ={
-    id: 0,
-    name: 'Bear',
-    price: 39.99,
-    imgSrc: "/assets/png/bear.png",
-    desc: ""
+  @Input() cartItem!: CartItem
+
+  constructor(private cartService: ShopCartService){}
+
+  removeProduct(){
+    this.cartService.removeItem(this.cartItem.product.id);
+  }
+
+  addProduct(){
+    this.cartService.addItem(this.cartItem.product);
+  }
+
+  deleteProduct(){
+    this.cartService.deleteItem(this.cartItem.product.id)
   }
 }

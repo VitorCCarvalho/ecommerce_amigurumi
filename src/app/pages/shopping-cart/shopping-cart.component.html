@@ -3,7 +3,7 @@
     <div class="cart-section">
         <span class="title-cart"><b>Carrinho de Compras</b></span>
         <div class="shopping-wrapper">
-            <div class="shopping-list" *ngFor="let cartItem of product_cart">
+            <div class="shopping-list" *ngFor="let cartItem of cart">
                 <app-shopping-item [cartItem]="cartItem"></app-shopping-item>
             </div>
         </div>

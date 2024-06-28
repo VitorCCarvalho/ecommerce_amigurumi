@@ -1,7 +1,7 @@
 import { Injectable, afterRender, signal } from '@angular/core';
 import { CartItem } from '../../types/cart-item.type';
 import { Product } from '../../types/product.type';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,80 +15,88 @@ export class ShopCartService {
     desc: ""
   }
 
-  cartSource!: Subject<CartItem[]>
-  cart = signal<CartItem[]>([])
+  storage!: Storage
+  storageCart!: CartItem[]
+  cart$!: BehaviorSubject<CartItem[]>
 
   constructor() {
-    afterRender(() => {
-      const storage = localStorage.getItem('cart')!= null ? JSON.parse(localStorage.getItem('cart')  || "") : []
-      this.cartSource = new Subject<CartItem[]>();
-      this.cart = signal<CartItem[]>(localStorage.getItem('cart')!= null ? JSON.parse(localStorage.getItem('cart')  || "") : [])
+    if (typeof window !== "undefined") {
+      this.storage = window.localStorage
+      this.cart$ = new BehaviorSubject<CartItem[]>([])
+      this.getCart()
     }
-      )
-   }
+      
+  }
 
-  
-  
-  addItem(item: Product){
-    this.cart.update((currentCart) => {
-      const existingItem = currentCart.find((i) => 
-        i.product.id === item.id
-      );
+  getCart(){
+    this.storageCart = this.storage.getItem('cart')!= "undefined" ? JSON.parse(this.storage.getItem('cart')  || "") : []
+    this.setCart(this.storageCart)
+    
+    
+    
+  }
 
-      if(existingItem){
-        existingItem.qty += 1
-      } else {
-        let cartItem : CartItem = {
-          product: item,
-          qty: 1
-        }
+  getItems(): Observable<CartItem[]>{
+    return this.cart$.asObservable()
+  }
 
-        currentCart.push(cartItem);
-      }
-
-      return currentCart;
-    })
-
+  setCart(cart: CartItem[]){
+    this.cart$.next(cart)
     this.syncCart()
+  }
+
+  addItem(item: Product){
+    const shopCart = this.cart$.value
+    const existingItem = shopCart.find((i) =>
+      i.product.id === item.id
+    )
+
+    if(existingItem){
+      existingItem.qty += 1
+    } else {
+      let cartItem : CartItem = {
+        product: item,
+        qty: 1
+      }
+      shopCart.push(cartItem)
+    }
+    this.setCart(shopCart)
   }
 
   removeItem(productId: number){
-    this.cart.update((currentCart) =>{
-      const item = currentCart.find((i) =>
-        i.product.id === productId
-      )
+    const shopCart = this.cart$.value
+    const item = shopCart.find((i) =>
+      i.product.id === productId
+    )
 
-      if(item){
-        if(item.qty > 1){
-          item.qty -= 1
-        } else{
-          let index = currentCart.indexOf(item)
-          currentCart.splice(index, 1)
-        }
+    if(item){
+      if(item.qty > 1){
+        item.qty -= 1
+      } else{
+        let index = shopCart.indexOf(item)
+        shopCart.splice(index, 1)
       }
+    }
 
-      return currentCart
-    })
-    this.syncCart()
+    this.setCart(shopCart)
   }
 
   deleteItem(productId: number){
-    this.cart.update((currentCart) =>{
-      const item = currentCart.find((i) =>
-        i.product.id === productId
-      )
+    const shopCart = this.cart$.value
+    const item = shopCart.find((i) =>
+      i.product.id === productId
+    )
 
-      if(item){
-        let index = currentCart.indexOf(item)
-        currentCart.splice(index, 1)
-      }
+    if(item){
+      let index = shopCart.indexOf(item)
+      shopCart.splice(index, 1)
+    }
 
-      return currentCart
-    })
-    this.syncCart()
+    this.setCart(shopCart)
   }
+  
 
   syncCart(){
-    localStorage.setItem('cart', JSON.stringify(this.cart()));
+    this.storage.setItem('cart', JSON.stringify(this.cart$.value))
   }
 }

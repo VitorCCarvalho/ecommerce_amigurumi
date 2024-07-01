@@ -1,7 +1,7 @@
 import { Injectable, afterRender, signal } from '@angular/core';
 import { CartItem } from '../../types/cart-item.type';
 import { Product } from '../../types/product.type';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

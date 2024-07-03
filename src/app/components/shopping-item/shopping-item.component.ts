@@ -15,7 +15,7 @@ export class ShoppingItemComponent {
   constructor(private cartService: ShopCartService){}
 
   removeProduct(){
-    this.cartService.removeItem(this.cartItem.product.id);
+    this.cartService.removeItem(this.cartItem.product.name);
   }
 
   addProduct(){

@@ -11,7 +11,11 @@
         </div>
     </div>
     <div class="right-box">
-        <b>R${{cartItem.product.price * cartItem.qty}}</b>
+        @if(cartItem.product.sale && cartItem.product.salePrice != null){
+            <span><del><b>R${{cartItem.product.price * cartItem.qty}}</b></del> <b> R${{cartItem.product.salePrice * cartItem.qty}}</b></span>
+        } @else {
+            <b>R${{cartItem.product.price * cartItem.qty}}</b>
+        }
         <div class="delete" (click)="deleteProduct()">
             <span class="material-symbols-outlined">
                 delete

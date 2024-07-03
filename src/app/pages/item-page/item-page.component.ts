@@ -1,9 +1,10 @@
 import { SnackbarService } from './../../services/snackbar/snackbar.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { Product } from '../../types/product.type';
 import { ShopCartService } from '../../services/shop-cart/shop-cart.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CmsService } from '../../services/cms/cms.service';
 
 @Component({
     selector: 'app-item-page',
@@ -12,12 +13,40 @@ import { Router } from '@angular/router';
     styleUrl: './item-page.component.scss',
     imports: [HeaderComponent]
 })
-export class ItemPageComponent {
+export class ItemPageComponent implements OnInit{
 
   constructor(
     private cartService: ShopCartService,
     private snackbarService: SnackbarService,
-    private router: Router){}
+    private router: Router,
+    private cmsService: CmsService,
+    private activeRoute: ActivatedRoute){}
+
+  ngOnInit(){
+    let name = ""
+    let productResp: any
+    this.activeRoute.queryParams.subscribe((nameParam) => {
+      name = nameParam['name']
+      if(name != null){
+        this.cmsService.getProductByName(name).then((response: any) => {
+          productResp = response.objects[0].metadata
+  
+          this.product.name = productResp.name
+          this.product.desc = productResp.desc
+          this.product.price = productResp.price
+          this.product.imgSrc = productResp.imgsrc
+          this.product.sale = productResp.sale
+          this.product.salePrice = productResp.saleprice
+  
+      })
+    }
+    
+    })
+    
+    
+  }
+    
+  
 
   product: Product = {
     id: 0,

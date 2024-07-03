@@ -1,50 +1,49 @@
 import { Injectable } from '@angular/core';
-import { defineOneEntry } from 'oneentry';
-import { IProductsEntity } from 'oneentry/dist/products/productsInterfaces';
-
-let { Products } = defineOneEntry('https://vccarvalhoprojects.oneentry.cloud/api/content/products/all', {
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidG9rZW4xIiwic2VyaWFsTnVtYmVyIjoxLCJpYXQiOjE3MTk1ODYwNzAsImV4cCI6MTc1MTEyMjA0M30.ceZA6PuYivNOtfX-la8M-BcEiU8PgScrlvAUA5a7TYQ', // AQUI SEU TOKEN
-  langCode:'en_US', //en_US
-})
-
-
+import { createBucketClient } from '@cosmicjs/sdk';
+import { Product } from '../../types/product.type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CmsService {
+  cosmic = createBucketClient({
+    bucketSlug: 'amigurumi-market-production',
+    readKey: 'l8hffVUfBHt1lV8BU7DtEctwVujhgHYr4H9jDs5kdR0Vl2aW2R',
+  });
 
-  body = [
-    {
-      "attributeMarker": "price",
-      "conditionMarker": "mth",
-      "statusMarker": "waiting",
-      "conditionValue": 1,
-      "pageUrls": [
-        "23-laminat-floorwood-maxima"
-      ]
-    },
-    {
-      "attributeMarker": "price",
-      "conditionMarker": "lth",
-      "conditionValue": 3,
-      "pageUrls": [
-        "23-laminat-floorwood-maxima"
-      ]
-    }
-  ]
-
-  
   constructor() { }
 
-  async getAllProducts(): Promise<IProductsEntity[]> {
-    try {
-      const product = await Products.getProducts('en_US');
-      return product;
-    } catch (error) {
-      console.error('Erro ao buscar todas as páginas:', error);
-      return [];
-    }
+  async getProducts(): Promise<Product[]>{
+    let response: Promise<Product[]> = await this.cosmic.objects
+    .find({
+      type: 'products',
+    })
+    .props([ 
+      'metadata.name' as 'name',
+      'metadata.price' as 'price',
+      'metadata.desc' as 'desc',
+      'metadata.sale' as 'sale',
+      'metadata.imgsrc' as 'imgSrc',
+      'metadata.saleprice' as 'salePrice'])
+
+    return response
+  }
+
+  async getProductByName(name: string): Promise<Product>{
+    let response: Promise<Product> = await this.cosmic.objects
+    .find({
+      type: 'products',
+      title: name
+    })
+    .props([ 
+      'metadata.name' as 'name',
+      'metadata.price' as 'price',
+      'metadata.desc' as 'desc',
+      'metadata.sale' as 'sale',
+      'metadata.imgsrc' as 'imgSrc',
+      'metadata.saleprice' as 'salePrice']).limit(1)
+
+    return response
   }
  
 }

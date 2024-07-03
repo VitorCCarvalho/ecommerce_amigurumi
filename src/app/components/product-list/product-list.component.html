@@ -8,9 +8,9 @@
         
     </div>
     <div class="list-area">
-        <div class="product-list" *ngFor="let product of products">
+        <div class="product-list" *ngFor="let product of products | slice:0:8">
             @if(sale){
-                <app-list-item [product]="product" [sale]="true"></app-list-item>
+                <app-list-item [product]="product"></app-list-item>
             } @else {
                 <app-list-item [product]="product"></app-list-item>
             }

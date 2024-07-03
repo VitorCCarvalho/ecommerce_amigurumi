@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductListComponent {
   @Input() sale : boolean = false
-  products: Product[] = [
+  @Input() products: Product[] = [
     {
       id: 0,
       name: "Urso",

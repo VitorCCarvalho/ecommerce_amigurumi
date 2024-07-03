@@ -32,8 +32,6 @@ export class ShopCartService {
     this.storageCart = this.storage.getItem('cart')!= "undefined" ? JSON.parse(this.storage.getItem('cart')  || "") : []
     this.setCart(this.storageCart)
     
-    
-    
   }
 
   getItems(): Observable<CartItem[]>{
@@ -48,7 +46,7 @@ export class ShopCartService {
   addItem(item: Product){
     const shopCart = this.cart$.value
     const existingItem = shopCart.find((i) =>
-      i.product.id === item.id
+      i.product.name === item.name
     )
 
     if(existingItem){
@@ -63,10 +61,10 @@ export class ShopCartService {
     this.setCart(shopCart)
   }
 
-  removeItem(productId: number){
+  removeItem(productName: string){
     const shopCart = this.cart$.value
     const item = shopCart.find((i) =>
-      i.product.id === productId
+      i.product.name === productName
     )
 
     if(item){

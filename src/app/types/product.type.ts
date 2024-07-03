@@ -4,4 +4,6 @@ export interface Product{
     price: number
     imgSrc: string
     desc: string
+    sale?: boolean
+    salePrice?: number
 }

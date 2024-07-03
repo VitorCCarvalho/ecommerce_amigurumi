@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../types/product.type';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list-item',
@@ -12,13 +12,17 @@ import { RouterModule } from '@angular/router';
   styleUrl: './list-item.component.scss'
 })
 export class ListItemComponent {
-  @Input() sale: boolean = false
-  @Input() newPrice: number = 0
+  constructor(private router: Router){}
+
   @Input() product: Product = {
     id: 0,
     name: "Urso",
     price: 49.99,
     imgSrc: "/assets/png/bear.png",
     desc: ""
+  }
+
+  navigateToItem(){
+    this.router.navigate(['item'], {queryParams: {name: this.product.name}})
   }
 }

@@ -33,7 +33,11 @@ export class ShoppingCartComponent implements OnInit{
     this.product_cart$.subscribe((cart) => {
       this.cart = cart
       this.subTotal = this.cart.reduce(function(a, b){
-        return a + (b.product.price * b.qty);
+        if(b.product.sale && b.product.salePrice != null){
+          return a + (b.product.salePrice * b.qty);
+        } else{
+          return a + (b.product.price * b.qty);
+        }
       }, 0)
       this.sumTotal = (this.subTotal + this.shipping).toFixed(2)
     })

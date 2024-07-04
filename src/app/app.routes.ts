@@ -3,10 +3,12 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ItemPageComponent } from './pages/item-page/item-page.component';
+import { ItemGridComponent } from './pages/item-grid/item-grid.component';
 
 export const routes: Routes = [
     {path: '', component: MainComponent},
     { path: 'cart', component: ShoppingCartComponent},
     { path: 'account', component: LoginComponent},
-    { path: 'item', component: ItemPageComponent}
+    { path: 'item', component: ItemPageComponent},
+    { path: 'all-items', component: ItemGridComponent}
 ];

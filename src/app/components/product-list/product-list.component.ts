@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product } from '../../types/product.type';
 import { ListItemComponent } from "../list-item/list-item.component";
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-product-list',
@@ -60,5 +61,10 @@ export class ProductListComponent {
     },
   ]
 
+  constructor(private router: Router){}
+
+  navigateToAllItems(){
+    this.router.navigate(['all-items'])
+  }
 
 }

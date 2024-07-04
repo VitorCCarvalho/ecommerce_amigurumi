@@ -10,6 +10,13 @@
 
 .list-container .title-text{
     font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list-container .title-text .link-all-items{
+    cursor: pointer
 }
 
 .list-container .list-area{

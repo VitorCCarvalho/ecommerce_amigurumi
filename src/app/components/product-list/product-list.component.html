@@ -1,11 +1,15 @@
 <div class="list-container">
     <div class="title-text">
-        @if(sale){
-            Promoções
-        } @else {
-            Vistos Recentemente
-        }
-        
+        <span>
+            @if(sale){
+                Promoções
+            } @else {
+                Vistos Recentemente
+            }
+        </span>
+        <div class="link-all-items" (click)="navigateToAllItems()">
+            Ver todos
+        </div>
     </div>
     <div class="list-area">
         <div class="product-list" *ngFor="let product of products | slice:0:8">

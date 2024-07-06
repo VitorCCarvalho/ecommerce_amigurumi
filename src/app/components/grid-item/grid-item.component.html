@@ -1,0 +1,17 @@
+<div class="body-grid-item" (click)="navigateToItem()">
+    <div class="img-wrapper">
+        <img src="{{product.imgSrc}}"/>
+    </div>
+    <div class="product-title">
+        {{product.name}}
+    </div>
+    <div class="info">
+        <div class="price">
+            @if(product.sale && product.salePrice != null){
+                <del><b>R${{product.price}}</b></del> <b> R${{product.salePrice}}</b>
+            }@else {
+                <b>R${{product.price}}</b>
+            }
+        </div>
+    </div>
+</div>

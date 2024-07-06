@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+<div class="body-item-grid">
+    <div class="section-filters">
+        <div class="filters-title">
+            Filtros
+        </div>
+        <form class="form-filters" [formGroup]="formFilters">
+            <div class="filter category-filter">
+                <div class="filter-title">
+                    Categoria
+                </div>
+                <div class="checkbox-filter" formArrayName="category">
+                    <div class="checkbox-list-wrapper" *ngFor="let category of categories| keyvalue; let i = index">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" [formControlName]="i"/>
+                            <label>{{category.value}}</label>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="filter priceRange-filter">
+                <div class="filter-title">
+                    Preço
+                </div>
+                <div class="checkbox-filter" formArrayName="priceRange">
+                    <div class="checkbox-list-wrapper" *ngFor="let priceRange of priceRanges| keyvalue; let i = index">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" [formControlName]="i"/>
+                            <label>{{priceRange.value}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter sale-filter">
+                <div class="filter-title">
+                    Promoção
+                </div>
+                <div class="checkbox-filter" formArrayName="sale">
+                    <div class="checkbox-list-wrapper" *ngFor="let sale of sales| keyvalue; let i = index">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" [formControlName]="i"/>
+                            <label>{{sale.value}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <div class="section-item-grid">
+        <div class="item-grid">
+            @for(item of products; track item){
+                <app-grid-item [product]="item"></app-grid-item>
+            }
+        </div>
+        
+            
+        
+    </div>
+</div>

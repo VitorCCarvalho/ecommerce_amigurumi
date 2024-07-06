@@ -8,6 +8,7 @@
 
 .shopping-item img{
     height: 180px;
+    cursor: pointer;
 }
 
 .shopping-item .left-box{
@@ -22,6 +23,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+.shopping-item .left-box .left-text b{
+    cursor: pointer;
 }
 
 .shopping-item .left-box .left-text .qty-box{

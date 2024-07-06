@@ -1,8 +1,8 @@
 <div class="shopping-item">
     <div class="left-box">
-        <img src="{{cartItem.product.imgSrc}}" />
-        <div class="left-text">
-            <b>{{cartItem.product.name}}</b>
+        <img src="{{cartItem.product.imgSrc}}" (click)="navigateToItem()"/>
+        <div class="left-text" >
+            <b (click)="navigateToItem()">{{cartItem.product.name}}</b>
             <div class="qty-box">
                 <button class="btn-qty" (click)="removeProduct()">-</button>
                 <p class="qty-text">{{cartItem.qty}}</p>

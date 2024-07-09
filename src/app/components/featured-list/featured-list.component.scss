@@ -7,14 +7,14 @@
   }
   
   .featured-section{
-      width: 100vw;
+      width: 100%;
       height: 220px;
       min-height:fit-content;
       background-color: var(--primary-color);
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;;
       
   }
   
@@ -25,6 +25,13 @@
       cursor: pointer;
       align-self: center;
       z-index: 1;
+  }
+
+  .featured-list{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
   }
   
   

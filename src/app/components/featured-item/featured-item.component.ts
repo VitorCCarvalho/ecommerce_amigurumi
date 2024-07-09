@@ -19,7 +19,17 @@ export class FeaturedItemComponent{
   constructor(private router: Router){}
 
   navigateToLink(){
-    this.router.navigate([this.featuredItem.link])
+    switch(this.featuredItem.link){
+      case 'item':
+        if(this.featuredItem.queryParams != null){
+          this.router.navigate([this.featuredItem.link], {queryParams: { name: this.featuredItem.queryParams}})
+        }
+        break;
+      default:
+        this.router.navigate([this.featuredItem.link]);
+        break; 
+    }
+    
   }
 
 }

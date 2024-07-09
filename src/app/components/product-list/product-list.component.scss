@@ -1,7 +1,6 @@
 .list-container{
-    width: 100vw;
+    width: 100%;
     padding-top: 8px;
-    padding-left: 60px;
     display: flex;
     flex-direction: column;
     
@@ -16,18 +15,21 @@
 }
 
 .list-container .title-text .link-all-items{
-    cursor: pointer
+    cursor: pointer;
+    justify-self: flex-end;
 }
 
 .list-container .list-area{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    max-width: 100%;
     gap: 30px;
+    align-self: center;
+    padding-top: 24px;
 }
 
 @media(min-width: 1500px){
     .list-container{
-        padding-left: 120px;
     }
 }

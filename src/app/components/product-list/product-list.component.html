@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="list-area">
-        <div class="product-list" *ngFor="let product of products | slice:0:8">
+    <div class="product-list" *ngFor="let product of products | slice:0:6">
             @if(sale){
                 <app-list-item [product]="product"></app-list-item>
             } @else {

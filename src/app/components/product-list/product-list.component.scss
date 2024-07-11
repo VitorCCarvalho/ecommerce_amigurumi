@@ -1,17 +1,19 @@
 .list-container{
     width: 100%;
-    padding-top: 8px;
     display: flex;
     flex-direction: column;
-    
+    padding-top: 32px;
+    padding-bottom: 32px;
     gap: 8px;
 }
 
 .list-container .title-text{
-    font-size: 30px;
+    font-size: 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .list-container .title-text .link-all-items{

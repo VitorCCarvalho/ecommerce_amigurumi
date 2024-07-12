@@ -17,34 +17,35 @@ export class ShopCartService {
 
   storage!: Storage
   storageCart!: CartItem[]
-  cart$!: BehaviorSubject<CartItem[]>
+  cart!: BehaviorSubject<CartItem[]>
 
   constructor() {
     if (typeof window !== "undefined") {
       this.storage = window.localStorage
-      this.cart$ = new BehaviorSubject<CartItem[]>([])
+      this.cart = new BehaviorSubject<CartItem[]>([])
       this.getCart()
     }
       
   }
 
   getCart(){
-    this.storageCart = this.storage.getItem('cart')!= "undefined" ? JSON.parse(this.storage.getItem('cart')  || "") : []
+    console.log(this.storage.getItem('cart'))
+    this.storageCart = this.storage.getItem('cart') === null ? [] : JSON.parse(this.storage.getItem('cart')  || "") 
     this.setCart(this.storageCart)
     
   }
 
   getItems(): Observable<CartItem[]>{
-    return this.cart$.asObservable()
+    return this.cart.asObservable()
   }
 
   setCart(cart: CartItem[]){
-    this.cart$.next(cart)
+    this.cart.next(cart)
     this.syncCart()
   }
 
   addItem(item: Product){
-    const shopCart = this.cart$.value
+    const shopCart = this.cart.value
     const existingItem = shopCart.find((i) =>
       i.product.name === item.name
     )
@@ -62,7 +63,7 @@ export class ShopCartService {
   }
 
   removeItem(productName: string){
-    const shopCart = this.cart$.value
+    const shopCart = this.cart.value
     const item = shopCart.find((i) =>
       i.product.name === productName
     )
@@ -80,7 +81,7 @@ export class ShopCartService {
   }
 
   deleteItem(productId: number){
-    const shopCart = this.cart$.value
+    const shopCart = this.cart.value
     const item = shopCart.find((i) =>
       i.product.id === productId
     )
@@ -95,6 +96,6 @@ export class ShopCartService {
   
 
   syncCart(){
-    this.storage.setItem('cart', JSON.stringify(this.cart$.value))
+    this.storage.setItem('cart', JSON.stringify(this.cart.value))
   }
 }

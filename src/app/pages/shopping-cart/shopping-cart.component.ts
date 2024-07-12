@@ -18,7 +18,6 @@ import { Observable } from 'rxjs';
 })
 export class ShoppingCartComponent implements OnInit{
 
-  product_cart$!: Observable<CartItem[]>
   cart!: CartItem[]
 
   subTotal!: number
@@ -29,8 +28,7 @@ export class ShoppingCartComponent implements OnInit{
   constructor(private cartService: ShopCartService){}
 
   ngOnInit(): void {
-    this.product_cart$ = this.cartService.getItems()
-    this.product_cart$.subscribe((cart) => {
+    this.cartService.getItems().subscribe((cart) => {
       this.cart = cart
       this.subTotal = this.cart.reduce(function(a, b){
         if(b.product.sale && b.product.salePrice != null){

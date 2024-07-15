@@ -1,23 +1,44 @@
 footer{
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 100px;
+    height: fit-content;
     background-color: var(--primary-color);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    gap: 12px;
 }
 
-footer .icons{
+footer .author-socials{
+    background-color: inherit;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer .line{
+    border-bottom: 2px solid var(--secondary-color);
+    width: 60%
+}
+
+footer .author-socials .icons{
     display: flex;
     flex-direction: row;
     padding-left: 90px;
     gap: 16px;
-    background-color: var(--primary-color);
+    background-color: inherit;
 }
 
-footer .icons .icon{
+footer .author-socials .icons .icon{
     width: 30px;
     background-color: transparent;
+}
+
+footer .author-socials .icons a{
+    text-decoration: none;
+    cursor: pointer;
 }
 
 footer span{

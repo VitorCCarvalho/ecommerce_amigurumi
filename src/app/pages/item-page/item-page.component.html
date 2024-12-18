@@ -2,14 +2,16 @@
 <div class="body-item">
     <div class="img-section">
         <div class="img-list">
-            <img class="small-img" src="{{product.imgSrc}}">
-            <img class="small-img" src="/assets/png/blank.png">
-            <img class="small-img" src="/assets/png/blank.png">
-            <img class="small-img" src="/assets/png/blank.png">
-            <img class="small-img" src="/assets/png/blank.png">
+            @for(image of productImages; track image){
+                @if(image == chosenImage){
+                    <img class="small-img-chosen" src="{{image.url}}" (click)="changeImage(image)">
+                } @else {
+                    <img class="small-img" src="{{image.url}}" (click)="changeImage(image)">
+                }
+            }
         </div>
 
-        <img class="current-img" src="{{product.imgSrc}}">
+        <img class="current-img" src="{{chosenImage.url}}">
     </div>
     <div class="desc-section">
         <p class="desc-title"><b>Descrição</b></p>

@@ -42,6 +42,7 @@ export class ItemPageComponent implements OnInit{
       }).finally(() => {
         this.cmsService.getProductImages(this.product.name.toLowerCase()).then((response: any) => {
           this.productImages = response.media
+          this.chosenImage = this.productImages[0]
         })
       })
     }
@@ -51,6 +52,7 @@ export class ItemPageComponent implements OnInit{
     
   }
     
+  index: number = 0
   
 
   product: Product = {
@@ -62,6 +64,8 @@ export class ItemPageComponent implements OnInit{
   }
 
   productImages: ProductImage[] = []
+
+  chosenImage: ProductImage = this.productImages[this.index]
 
   buyNow(){
     this.cartService.addItem(this.product)
@@ -75,5 +79,9 @@ export class ItemPageComponent implements OnInit{
 
   notifyAddToCart(){
     this.snackbarService.open("Item adicionado ao carrinho");
+  }
+
+  changeImage(image: ProductImage){
+    this.chosenImage = image
   }
 }

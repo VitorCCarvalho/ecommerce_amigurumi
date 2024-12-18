@@ -24,6 +24,12 @@
 
 .body-item .img-section .small-img{
     width: 100px;
+    cursor: pointer
+}
+
+.body-item .img-section .small-img-chosen{
+    width: 100px;
+    border: 3px solid var(--secondary-color);
 }
 
 

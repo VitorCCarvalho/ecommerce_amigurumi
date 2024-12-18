@@ -29,7 +29,6 @@ export class ShopCartService {
   }
 
   getCart(){
-    console.log(this.storage.getItem('cart'))
     this.storageCart = this.storage.getItem('cart') === null ? [] : JSON.parse(this.storage.getItem('cart')  || "") 
     this.setCart(this.storageCart)
     

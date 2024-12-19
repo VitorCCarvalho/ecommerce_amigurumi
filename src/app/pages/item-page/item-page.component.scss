@@ -70,7 +70,7 @@
 .body-item .actions-section .btn-section .btn-buynow{
     height: 50px;
     border: none;
-    background-color: var(--primary-color);
+   
     border-radius: 4px;
 
     cursor: pointer;
@@ -82,12 +82,14 @@
 
 .body-item .actions-section .btn-section .btn-addcart{
     height: 50px;
-    border: 2px solid var(--primary-dark);
-    background-color: transparent;
     border-radius: 4px;
     
     color: var(--primary-dark);
     cursor: pointer;
+}
+
+.body-item .actions-section .btn-section .btn-addcart b{
+    background-color: inherit;
 }
 
 

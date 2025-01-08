@@ -21,4 +21,33 @@
 
 .body-grid-item .info{
     cursor: pointer;
+    background-color: transparent;
+}
+
+
+
+.body-grid-item:hover{
+  
+    background: linear-gradient(to right, #000 20%, pink 40%, pink 60%, #000 80%);
+    background-size: 200% auto;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: #000;
+    -webkit-text-fill-color: transparent;
+
+    
+    animation: shine 1s linear infinite;
+    @keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+    }
+
+}
+
+.body-grid-item:hover .full-price {
+    color: var(--bg-color);
+    -webkit-text-fill-color: var(--bg-color);
+    transition: 1s
 }

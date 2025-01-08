@@ -8,9 +8,10 @@
     <div class="info">
         <div class="price">
             @if(product.sale && product.salePrice != null){
-                <del><b>R${{product.price}}</b></del> <b> R${{product.salePrice}}</b>
+                <div class="full-price"><del><b>R${{product.price}}</b></del></div> 
+                <div class="sale-price"><b> R${{product.salePrice}}</b></div>
             }@else {
-                <b>R${{product.price}}</b>
+                <div class="normal-price"><b>R${{product.price}}</b></div>
             }
         </div>
     </div>

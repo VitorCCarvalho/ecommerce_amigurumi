@@ -1,5 +1,6 @@
 :root{
     --bg-color: #DFE5EA;
+    --bg-color-dark: #c1c7cb;
     --bg-secondary: #c9c9c9;
     --primary-color: #F0CBCC;
     --secondary-color: #81818F;
@@ -12,6 +13,27 @@
 
 body{
   background-color: var(--bg-color);
+}
+
+.btn-primary{
+  background-color: var(--primary-color);
+  
+}
+
+.btn-primary:hover{
+  background-color: var(--primary-dark);
+  transition: 0.2s linear
+}
+
+.btn-secondary{
+  border: 2px solid var(--primary-color);
+  background-color: var(--bg-color);
+  transition: 0.2s linear;
+}
+
+.btn-secondary:hover{
+  background-color: var(--bg-color-dark);
+  transition: 0.2s linear;
 }
 
 @font-face {

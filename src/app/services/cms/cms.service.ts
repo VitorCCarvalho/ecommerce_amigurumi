@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { createBucketClient } from '@cosmicjs/sdk';
 import { Product } from '../../types/product.type';
 import { GridFilter } from '../../types/grid-filter.type';
+import { ProductImage } from '../../types/product-image.type';
 
 @Injectable({
   providedIn: 'root'
@@ -126,5 +127,16 @@ export class CmsService {
 
     return response
 
+  }
+
+  async getProductImages(product_name: string): Promise<ProductImage[]>{
+    let response: Promise<ProductImage[]> = await this.cosmic.media
+    .find({
+      'metadata.product_name': product_name
+    })
+    .props([ 
+      'url' as 'url'])
+
+    return response
   }
 }

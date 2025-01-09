@@ -1,13 +1,12 @@
 <div class="container-product" (click)="navigateToItem()">
     <img src="{{product.imgSrc}}"/>
     <div class="text-section">
-        @if(product.sale === true){
-            <p>{{product.name}}</p>
-            <p><del>R${{product.price}}</del> <b> R${{product.salePrice}}</b></p>
+        @if(product.sale && product.salePrice != null){
+            <div class="full-price"><del><b>R${{product.price}}</b></del></div> 
+            <div class="sale-price"><b> R${{product.salePrice}}</b></div>
         }
         @else {
-            <p>{{product.name}}</p>
-            <p>R${{product.price}}</p>
+            <div class="normal-price"><b>R${{product.price}}</b></div>
         }
     </div>
 </div>

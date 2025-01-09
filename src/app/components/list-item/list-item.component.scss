@@ -3,7 +3,46 @@
     flex-direction: column;
     gap: 8px;
     cursor: pointer;
+
+    --borderWidth: 3px;
+    background: var(--bg-color);
+    position: relative;
+    padding: 12px;
 }
+
+.container-product:hover::after{
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(0deg, var(--primary-dark), var(--primary-color), var(--primary-dark), var(--primary-color));
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 2s linear infinite;
+    background-size: 300% 300%;
+
+    transition: 0.5s linear
+}
+
+@keyframes animatedgradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
 
 .container-product img{
     width: 150px;
@@ -11,6 +50,32 @@
 
 .container-product .text-section{
     font-size: 12px;
+}
+
+.container-product:hover .text-section{
+  
+    background: linear-gradient(to right, #000 20%, pink 40%, pink 60%, #000 80%);
+    background-size: 200% auto;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: #000;
+    -webkit-text-fill-color: transparent;
+
+    
+    animation: shine 1s linear infinite;
+    @keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+    }
+
+}
+
+.container-product:hover .full-price {
+    color: var(--bg-color);
+    -webkit-text-fill-color: var(--bg-color);
+    transition: 1s
 }
 
 

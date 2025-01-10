@@ -37,6 +37,15 @@ body{
   transition: 0.2s linear;
 }
 
+.txt-link{
+  transition: 0.3s
+}
+
+.txt-link:hover{
+  transition: 0.3s linear;
+  color: var(--primary-dark)
+}
+
 @font-face {
     font-family: 'Cherry Bomb One';
     src: url('assets/fonts/Cherry Bomb/CherryBombOne-Regular.ttf');

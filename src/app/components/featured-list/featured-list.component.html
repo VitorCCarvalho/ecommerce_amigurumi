@@ -1,12 +1,12 @@
 <div class="featured-section">
-    <span class="material-symbols-outlined arrow" (click)="previousItem()">
+    <span class="material-symbols-outlined arrow arrow-left" (click)="previousItem()">
         arrow_back_ios
     </span>
     <div class="featured-list" *ngFor="let item of featuredItems">
         <app-featured-item *ngIf="featuredItems[counter].text === item.text" class="featured-item" [featuredItem]="item" [@inOutAnimation]></app-featured-item>
     </div>
     
-    <span class="material-symbols-outlined arrow" (click)="nextItem()">
+    <span class="material-symbols-outlined arrow arrow-right" (click)="nextItem()">
         arrow_forward_ios
     </span>
 </div>

@@ -37,13 +37,31 @@ body{
   transition: 0.2s linear;
 }
 
-.txt-link{
+.txt-link-primary{
   transition: 0.3s
 }
 
-.txt-link:hover{
+.txt-link-primary:hover{
   transition: 0.3s linear;
   color: var(--primary-dark)
+}
+
+.txt-link-grad:hover{
+    background: linear-gradient(to right, #000 20%, rgb(173, 108, 119) 40%, rgb(173, 108, 119), #000 80%);
+    background-size: 200% auto;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: #000;
+    -webkit-text-fill-color: transparent;
+
+    
+    animation: shine 1s linear infinite;
+    @keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+    }
 }
 
 @font-face {

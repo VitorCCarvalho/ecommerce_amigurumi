@@ -14,7 +14,7 @@
         
                 <button class="btn btn-primary" (click)="onSubmit()">Login</button>
             </form>
-            <a class="link-signup" (click)="changeForms()">Ainda não é cadastrado? Cadastre-se aqui</a>
+            <a class="txt-link-primary link-signup" (click)="changeForms()">Ainda não é cadastrado? Cadastre-se aqui</a>
         </div>
         
         <div class="form form-signup" *ngIf="!loginOrSignup" [@inOutAnimation]>
@@ -34,6 +34,6 @@
         
                 <button class="btn btn-primary" (click)="onSubmit()">Cadastro</button>
             </form>
-            <a class="link-signup" (click)="changeForms()">Voltar para a seção de login</a>
+            <a class="txt-link-primary link-signup" (click)="changeForms()">Voltar para a seção de login</a>
         </div>
 </div>
